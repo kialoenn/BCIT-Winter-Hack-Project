@@ -3,6 +3,10 @@ const app = express();
 const fs = require("fs");
 const port = 3000;
 
+app.use('/css', express.static('private/css'));
+app.use('/img', express.static('private/img'));
+app.use('/js', express.static('private/js'));
+
 // APP GETS
 app.get('/', function (req, res) {
 
