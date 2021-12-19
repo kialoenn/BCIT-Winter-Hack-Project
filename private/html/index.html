@@ -3,45 +3,102 @@
 
 <head>
     <meta charset="utf-8" />
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="../css/style.css">
     <title>BCIT Calaulator</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 </head>
 
 <body>
-    <div id="ieee">
-        <div id="ieee-calculator">
-            <form id="ieee-calculator-form">
-                <p>Please enter a decimal to be converted:</p>
-                <input id="ieee-decimal-input" type="number" placeholder="Decimal Number">
-            </form>
-            <button id="ieee-decimal-submit">Convert</button>
+    <div id="app" v-cloak>
+        <div id="calculator">
+            <div class="screen-container">
+                <div class="result">
+                    <transition name="slide-fade">
+                        <!-- <div class="number" id="resultNumber" :style="{fontSize : fontSize + 'px'}" v-if="tempResult !== ''" v-cloak>
+                            {{ tempResult | number | hugeNumber }}</div> -->
+                        <div class="number" id="resultNumber"></div>
+                    </transition>
+                </div>
+                <div class="calculation">
+                    <div class="number" id="inputNumber" v-cloak>{{ calculation | number | calculation}}</div>
+                </div>
+            </div>
+            <div class="btn-container">
+                <div class="oper-container">
+                    <div class="btn" id="clear" @click="clear()">
+                        <div class="number">AC</div>
+                    </div>
+                    <div class="btn operations divide" id="toHex-submit">
+                        <div class="number">Hex</div>
+                    </div>
+                    <div class="btn operations multiplication" id="toOctal-submit">
+                        <div class="number">Oct</div>
+                    </div>
+                    <div class="btn operations plus" id="toBinary-submit">
+                        <div class="number">BIN</div>
+                    </div>
+                    <div class="btn operations less" id="ieee-decimal-submit">
+                        <div class="number">IEEE</div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="btn" @click="append('7')">
+                        <div class="number">7</div>
+                    </div>
+                    <div class="btn" @click="append('8')">
+                        <div class="number">8</div>
+                    </div>
+                    <div class="btn" @click="append('9')">
+                        <div class="number">9</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn" @click="append('4')">
+                        <div class="number">4</div>
+                    </div>
+                    <div class="btn" @click="append('5')">
+                        <div class="number">5</div>
+                    </div>
+                    <div class="btn" @click="append('6')">
+                        <div class="number">6</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn" @click="append('1')">
+                        <div class="number">1</div>
+                    </div>
+                    <div class="btn" @click="append('2')">
+                        <div class="number">2</div>
+                    </div>
+                    <div class="btn" @click="append('3')">
+                        <div class="number">3</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="btn" id="dot" @click="append('.')">
+                        <div class="number">.</div>
+                    </div>
+                    <div class="btn" @click="append('0')">
+                        <div class="number">0</div>
+                    </div>
+                    <div class="btn">
+                        <div class="number"></div>
+                    </div>
+                    <div class="btn" @click="append('-')">
+                        <div class="number">-</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="result">
-        <label id="signLabel">Sign</label>
-        <input type="text" id="signNumber" name="sign">
-        <label id="exponentLabel">Exponent</label>
-        <input type="text" id="exponenNumber" name="sign">
-        <label id="matissaLabel">Matissa</label>
-        <input type="text" id="matissaNmber" name="sign">
-        <label id="isZeroLabel">isZero</label>
-        <input type="text" id="isZeroNumber" name="sign">
-    </div>
-</body>
-
-<script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js "></script>
-<script src=" js/mainFunction.js "></script>
-
-
-<div id="result">
-    <table>
-    </table>
-</div>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="js/mainFunction.js"></script>
-<script src="js/ieeeFunctions.js"></script>
+<script src="../js/mainFunction.js"></script>
+<script src="../js/ieeeFunctions.js"></script>
+<script src="../js/decimalToOtherBases.js"></script>
+<script src="../js/calculator.js"></script>
 
 </html>

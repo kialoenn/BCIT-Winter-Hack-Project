@@ -78,7 +78,7 @@ function roundFraction(number, exponentBits, mantissaBits) {
  * @param {*} exponentBits 
  * @param {*} mantissaBits 
  */
-function floatContext(number, exponentBits, mantissaBits) {
+var floatContext = function floatContext(number, exponentBits, mantissaBits) {
     var round = roundFraction(number, exponentBits, mantissaBits);
     var result = getFloat(round);
     var exponentBitRepr = (result.exponent + excessExponent(exponentBits)).toString(2);
