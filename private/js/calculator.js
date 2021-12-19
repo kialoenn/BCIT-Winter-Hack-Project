@@ -30,35 +30,4 @@ new Vue({
             this.tempResult = ''
         },
     },
-    watch: {
-        calculation() {
-            if (this.calculation !== '' && !isNaN(this.calculation.slice(-1)) && this.calculation != this.result) {
-                this.tempResult = this.result.toString()
-            }
-        }
-    },
-    computed: {
-        result() {
-            if (!isNaN(this.calculation.slice(-1)))
-                return eval(this.calculation)
-            else
-                return eval(this.calculation.slice(0, -1))
-        },
-        fontSize() {
-            return this.fontSize = 50 - (this.tempResult.length * 1.25)
-        }
-    },
-    filters: {
-        hugeNumber: (value) => {
-            let parts = value.toString().split(".");
-            parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-            return parts.join(".");
-        },
-        number: (value) => {
-            return value.replaceAll('*', 'x')
-        },
-        calculation: (value) => {
-            return value.replaceAll('x', ' x ').replaceAll('/', ' / ').replaceAll('+', ' + ').replaceAll('-', ' - ')
-        }
-    }
 })

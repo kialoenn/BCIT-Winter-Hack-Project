@@ -10,7 +10,8 @@ $(document).ready(function() {
     }
 
     function binary() {
-        var number = parseInt($('#inputNumber').text())
+        var number = parseFloat($('#inputNumber').text());
+        console.log(number);
         $('#resultNumber').text(number.toString(2));
     }
 
