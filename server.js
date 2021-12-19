@@ -8,9 +8,9 @@ app.use('/img', express.static('private/img'));
 app.use('/js', express.static('private/js'));
 
 // APP GETS
-app.get('/', function (req, res) {
+app.get('/', function(req, res) {
 
-    fs.readFile("./private/html/index.html", function (error, pgRes) {
+    fs.readFile("./private/html/index.html", function(error, pgRes) {
         if (error) {
             res.writeHead(404);
             res.write(msg404);
